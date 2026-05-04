@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Estudiante</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/estiloEstudiante.css}" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-2 sidebar">
+            <h4>Estudiante</h4>
+            <hr>
+
+            <a href="#">Mi Horario</a>
+
+            <hr>
+
+            <a th:href="@{/logout}">Cerrar sesion</a>
+        </div>
+
+        <div class="col-md-10 p-4">
+
+            <div class="topbar mb-4 d-flex justify-content-between">
+                <h5>Horario de Clases</h5>
+                <span>
+                    Bienvenido <strong th:text="${estudiante.nombre}">Estudiante</strong>
+                    - Salon <strong th:text="${estudiante.salon}">0</strong>
+                </span>
+            </div>
+
+            <div class="card card-horario p-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered tabla-horario">
+
+                        <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Lunes</th>
+                            <th>Martes</th>
+                            <th>Miercoles</th>
+                            <th>Jueves</th>
+                            <th>Viernes</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr th:if="${#lists.isEmpty(filasHorario)}">
+                            <td colspan="6" class="text-muted">No hay asignaturas registradas.</td>
+                        </tr>
+
+                        <tr th:each="fila : ${filasHorario}">
+                            <td class="hora" th:text="${fila['hora']}">7:00 - 8:00</td>
+                            <td th:text="${fila['LUNES']} ?: '-'">-</td>
+                            <td th:text="${fila['MARTES']} ?: '-'">-</td>
+                            <td th:text="${fila['MIERCOLES']} ?: '-'">-</td>
+                            <td th:text="${fila['JUEVES']} ?: '-'">-</td>
+                            <td th:text="${fila['VIERNES']} ?: '-'">-</td>
+                        </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

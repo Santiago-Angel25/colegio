@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #f7d774, #a6c9e2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    width: 420px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.login-left {
+    background-color: #0d3b66;
+    color: white;
+    padding: 40px;
+    width: 100%;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.btn-login {
+    background-color: #f4a261;
+    border: none;
+    color: white;
+}
+
+.btn-login:hover {
+    background-color: #e76f51;
+}
